@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
 当需要使用数据集时，通过DataLoader进行批量加载，数据可视化为如下：
 
-![](https://raw.githubusercontent.com/OnceMonkey/my_blog/main/img/image-20210405210441156.png)
+![](https://raw.githubusercontent.com/OnceMonkey/cloudimg/main/img/image-20210405210441156.png)
 
 ## 后续
 
