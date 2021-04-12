@@ -36,7 +36,15 @@ CycleGAN
 
 StyleGAN
 
-MSGGAN
+MSG-GAN
+
+
+
+PGGAN
+
+HingeGAN
+
+LSGAN
 
 # 评估指标
 
