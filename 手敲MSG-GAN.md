@@ -36,4 +36,3 @@ decay
 
 equalized_conv2d 均衡学习率，出自PGGAN
 
-123
