@@ -62,7 +62,7 @@ KL散度是衡量两个分布之间的距离的，所以从某种意义来讲，
 
 所以我们前面提到的优化ϴ就变成了优化G的参数，由前面可知，我们可以通过最小化两分布的散度来获得最优参数。
 
-$G^*=\mathop{argmax}\limits_{\theta} {Div(P_{data},P_G)}$​
+$G^*=\mathop{argmin}\limits_{\theta} {Div(P_{data},P_G)}$​​
 
 ### 判别器做了哪些事？
 
@@ -82,7 +82,7 @@ $V= E_{x \sim P_{data}} logD(x) + E_{x \sim P_{G}} log(1-D(x))$​
 
 $V={\int \limits_{x} P_{data}(x)logD(x) \mathrm{d}x} + {\int \limits_{x} P_{G}(x)log(1-D(x)) \mathrm{d}x}$ 
 
-对积分进行合并。可能合并这一操作可能会有点跳跃，虽然左右两边一个是真实数据，一个是生成数据，但是他们始终都属于整个图片空间，我们是在整个图片空间上做积分。
+对积分进行合并。可能合并这一操作可能会有点跳跃，虽然左右两边一个是真实数据，一个是生成数据，但是他们属于同一个图片空间，我们是在整个图片空间上做积分。
 
 $={\int \limits_{x} P_{data}(x)logD(x) +P_{G}(x)log(1-D(x)) \mathrm{d}x}$
 
@@ -100,7 +100,7 @@ $\frac{df(D)}{dD}=a*\frac{1}{D}+b*\frac{1}{1-D}*(-1)=0$
 
 $D^*=\frac{a}{a+b}$
 
-那么最终将$P_{data}$和$P_G$代回去，就得到了判别器事$V(G,D)$最大的最优参数
+那么最终将$P_{data}$​和$P_G$​代回去，就得到了判别器使$V(G,D)$​最大的最优参数
 
 $D^*(x)=\frac{P_{data}(x)}{P_{data}(x)+P_{G}(x)}$
 
