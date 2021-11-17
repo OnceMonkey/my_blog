@@ -4,11 +4,11 @@
 
 抛两颗骰子得到的点数可以看做一个随机变量(X,Y), 显然X和Y的取值只可能是1至6。那么，在(X,Y)构成的二维空间中，所有样本均匀的分布在网格点如下图所示：
 
-![image-20210804132332883](assets/image-20210804132332883.png)
+![image-20210804132332883](https://raw.githubusercontent.com/OnceMonkey/cloudimg/main/img/image-20210804132332883.png)
 
 如果我们用概率来描述这个分布(x,y 都是整数)的话，那就是
 
-![image-20210804132344306](assets/image-20210804132344306.png)
+![image-20210804132344306](https://raw.githubusercontent.com/OnceMonkey/cloudimg/main/img/image-20210804132344306.png)
 
 如果有另外一个分布的概率密度和这个一样，那么该分布与投2个骰子所获得的点数的分布是相似的（样本的分布也相似）。
 
@@ -16,7 +16,7 @@
 
 分辨率256*256的图片可以看成一个65536维的随机变量(投2个骰子的例子是2维)，那么在这样的一个65536维的高维空间中，一张图片可以是看做是空间中的一个点。如下图所示，由一堆人脸图片构成的点的集合可以看做是一个人脸分布，那么对于该人脸分布而言，在分布之内的点概率不为0，在分布之外的点的概率为0。
 
-![image-20210804132539996](assets/image-20210804132539996.png)
+![image-20210804132539996](https://raw.githubusercontent.com/OnceMonkey/cloudimg/main/img/image-20210804153719627.png)
 
 在许多论文或者对GAN的介绍里面都可以看到$P_{data}(x)$​这个概念。这里的$x$​也就是指构成图片的像素值(对应空间中的某个点)，因此对于$y=P_{data}(x)$​，$y$是一个概率值，是样本$x$在人脸分布中的概率。
 
@@ -42,7 +42,7 @@ $\theta^* \approx \mathop{argmax}\limits_{\theta} {E_{x \sim P_{data}} [logP_G(x
 
 这时在后面添加一项常数不影响最终$\theta^*$​ 的结果
 
-$\theta^*=\mathop{argmax}\limits_{\theta} {\int \limits_{x} {P_{data}(x)logP_G(x^i,\theta)} \mathrm{d}x} - {\int \limits_{x} {P_{data}(x)logP_{data}(x)} \mathrm{d}x}$ $\theta^*=\mathop{argmax}\limits_{\theta} {\int \limits_{x} {P_{data}(x)logP_G(x^i,\theta) - {P_{data}(x)logP_{data}(x)}} \mathrm{d}x}$
+$\theta^*=\mathop{argmax}\limits_{\theta} {\int \limits_{x} {P_{data}(x)logP_G(x^i,\theta)} \mathrm{d}x} - {\int \limits_{x} {P_{data}(x)logP_{data}(x)} \mathrm{d}x}$
 
 最终我们将原式转化为了KL散度的定义，也就是说原式：
 
@@ -58,7 +58,7 @@ KL散度是衡量两个分布之间的距离的，所以从某种意义来讲，
 
 我们先来回顾下GAN的生成器做了什么事情。这是一张生成器的流程图，z是一个服从正太分布的一个高维随机变量, x是图片，$x=G(z)$​。每一个z对应于图片空间中的一个点，这些点的集合就对应一个分布。调整G的参数，可以改变映射后的分布。显然，最初始的G映射得到的分布与人脸分布相差甚远。因此，我们的任务就是调整G的参数，使分布逐渐向人脸分布靠近，最后我们就可以从z分布中随机采样，经过G的映射获得人脸图片。
 
-![image-20210804153719627](assets/image-20210804153719627.png)
+![image-20210804153719627](https://raw.githubusercontent.com/OnceMonkey/cloudimg/main/img/image-20210804132539996.png)
 
 所以我们前面提到的优化ϴ就变成了优化G的参数，由前面可知，我们可以通过最小化两分布的散度来获得最优参数。
 
@@ -66,7 +66,7 @@ $G^*=\mathop{argmin}\limits_{\theta} {Div(P_{data},P_G)}$​​
 
 ### 判别器做了哪些事？
 
-![image-20210804154438039](assets/image-20210804154438039.png)
+![image-20210804154438039](https://raw.githubusercontent.com/OnceMonkey/cloudimg/main/img/image-20210804154438039.png)
 
 判别器对生成数据和真实数据进行分类，其目标函数为：
 
